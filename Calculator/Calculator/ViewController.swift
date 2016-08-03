@@ -27,7 +27,8 @@ class ViewController: UIViewController {
     
     private var displayValue: Double {
         get {
-            return Double(display.text!)!
+            guard let num = Double(display.text!) else{ return 0.0 }
+            return num
         }
         set {
             display.text = String(newValue)

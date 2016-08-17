@@ -15,3 +15,24 @@
 #### stack view
 #### アンカーの設定
 ctrl+右ドラッグで設定する．ctrl+shift+左クリックでレイヤーになっているviewを選択できる．
+### Lecture 3で扱った内容
+#### Optionalの詳細，??演算子
+#### Tuple
+#### Range
+#### Data structures
+`struct`と`enum`はvalue，`class`はreference．
+#### willSet, didSet
+#### lazy
+#### Array
+`filter`, `map`, `reduce`
+#### Dictionary
+#### String
+#### NS classes
+#### Initialization
+#### AnyObject
+### Lecture 4で扱った内容
+#### Views
+#### 図形，テキストの描画
+`UIBezierPath`, `UILabel`
+#### フォント
+#### 画像の描画

@@ -36,3 +36,6 @@ ctrl+右ドラッグで設定する．ctrl+shift+左クリックでレイヤー�
 `UIBezierPath`, `UILabel`
 #### フォント
 #### 画像の描画
+
+### Lecture 5で扱った内容
+####`@IBDesignable`, `@IBInspectable`

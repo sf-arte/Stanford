@@ -17,8 +17,11 @@ class FaceView: UIView {
     
     func changeScale(recognizer: UIPinchGestureRecognizer) {
         switch recognizer.state {
-        case .Changed, .Ended:
-                
+        case .changed, .ended:
+            scale *= recognizer.scale
+            recognizer.scale = 1.0
+        default:
+            break
         }
     }
     

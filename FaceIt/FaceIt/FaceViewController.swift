@@ -2,9 +2,6 @@
 //  ViewController.swift
 //  FaceIt
 //
-//  Created by Suita Fujino on 2016/08/17.
-//  Copyright © 2016年 ARTE Co., Ltd. All rights reserved.
-//
 
 import UIKit
 
@@ -17,7 +14,9 @@ class FaceViewController: UIViewController {
     
     @IBOutlet weak var faceView: FaceView! {
         didSet {
-            faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: #selector(FaceVi.changeScale(_:)))
+            faceView.addGestureRecognizer(UIPinchGestureRecognizer(
+                target: faceView, action: #selector(FaceView.changeScale(_:))
+            ))
             updateUI()
         }
     }

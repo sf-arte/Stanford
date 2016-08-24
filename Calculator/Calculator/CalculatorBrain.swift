@@ -8,11 +8,11 @@ import Foundation
 class CalculatorBrain {
     
     private var accumulator = 0.0
-    private var internalProgram = [AnyObject]()
+    private var internalProgram = [Op]()
     
     func setOperand(_ operand: Double) {
         accumulator = operand
-        internalProgram.append(operand)
+        internalProgram.append(.operand(operand))
     }
     
     var operations =  [
@@ -35,8 +35,13 @@ class CalculatorBrain {
         case Equals
     }
     
+    enum Op {
+        case operand(Double)
+        case operation(String)
+    }
+    
     func performOperation(_ symbol: String) {
-        internalProgram.append(symbol)
+        internalProgram.append(.operation(symbol))
         if let operation = operations[symbol] {
             switch operation {
             case .Constant(let val):
@@ -67,7 +72,7 @@ class CalculatorBrain {
         var firstOperand: Double
     }
     
-    typealias PropertyList = AnyObject
+    typealias PropertyList = [Op]
     
     var program: PropertyList {
         get {
@@ -75,13 +80,12 @@ class CalculatorBrain {
         }
         set {
             clear()
-            if let arrayOfOps = newValue as? [AnyObject] {
-                for op in arrayOfOps {
-                    if let operand = op as? Double {
-                        setOperand(operand)
-                    } else if let operation = op as? String {
-                        performOperation(operation)
-                    }
+            for op in newValue {
+                switch op{
+                case .operand(let operand):
+                    setOperand(operand)
+                case .operation(let operation):
+                    performOperation(operation)
                 }
             }
         }

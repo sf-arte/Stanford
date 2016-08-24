@@ -44,3 +44,7 @@ ctrl+右ドラッグで設定する．ctrl+shift+左クリックでレイヤー�
 ### Lecture 6で扱った内容
 #### Segues
 #### Tab Bar Controller, Split View Controller, Navigation Controller
+#### View Controller Lifecycle
+### Lecture 7で扱った内容
+#### Memory Management
+`strong`, `weak`, `unowned`

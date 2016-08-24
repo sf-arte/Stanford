@@ -38,4 +38,6 @@ ctrl+右ドラッグで設定する．ctrl+shift+左クリックでレイヤー�
 #### 画像の描画
 
 ### Lecture 5で扱った内容
-####`@IBDesignable`, `@IBInspectable`
+#### `@IBDesignable`, `@IBInspectable`
+#### Gesture
+`addGestureRecognizer`でコードからハンドラを設定する方法と，`@IBAction`でStoryboardから設定する方法．

@@ -15,6 +15,10 @@ class CalculatorBrain {
         internalProgram.append(.operand(operand))
     }
     
+    func addUnaryOperation(symbol: String, operation: (Double) -> Double) {
+        operations[symbol] = Operation.UnaryOperation(operation)
+    }
+    
     var operations =  [
         "π" : Operation.Constant(M_PI),
         "e" : Operation.Constant(M_E),

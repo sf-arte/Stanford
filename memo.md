@@ -48,3 +48,7 @@ ctrl+右ドラッグで設定する．ctrl+shift+左クリックでレイヤー�
 ### Lecture 7で扱った内容
 #### Memory Management
 `strong`, `weak`, `unowned`
+#### Closures
+`[weak self]`
+#### Extensions
+#### Protocols

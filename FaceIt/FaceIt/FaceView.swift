@@ -42,8 +42,8 @@ class FaceView: UIView {
     }
     
     enum Eye {
-        case Left
-        case Right
+        case left
+        case right
     }
     
     private func pathForCircleCenteredAtPoint(midPoint: CGPoint, radius: CGFloat) -> UIBezierPath {
@@ -58,8 +58,8 @@ class FaceView: UIView {
         var eyeCenter = skullCenter
         eyeCenter.y -= eyeOffset
         switch eye {
-        case .Left: eyeCenter.x -= eyeOffset
-        case .Right: eyeCenter.x += eyeOffset
+        case .left: eyeCenter.x -= eyeOffset
+        case .right: eyeCenter.x += eyeOffset
         }
         return eyeCenter
     }
@@ -83,8 +83,8 @@ class FaceView: UIView {
     private func pathForBrow(_ eye: Eye) -> UIBezierPath {
         var tilt = eyeBrowTilt
         switch eye {
-        case .Left: tilt *= -1.0
-        case .Right: break
+        case .left: tilt *= -1.0
+        case .right: break
         }
         var browCenter = getEyeCenter(eye: eye)
         browCenter.y -= skullRadius / Ratios.SkullRadiusToBrowOffset
@@ -125,11 +125,11 @@ class FaceView: UIView {
     override func draw(_ rect: CGRect) {
         color.set()
         pathForCircleCenteredAtPoint(midPoint: skullCenter, radius: skullRadius).stroke()
-        pathForEye(.Left).stroke()
-        pathForEye(.Right).stroke()
+        pathForEye(.left).stroke()
+        pathForEye(.right).stroke()
         pathForMouth().stroke()
-        pathForBrow(.Left).stroke()
-        pathForBrow(.Right).stroke()
+        pathForBrow(.left).stroke()
+        pathForBrow(.right).stroke()
     }
 
 }

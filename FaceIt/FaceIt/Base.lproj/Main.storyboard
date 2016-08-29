@@ -88,8 +88,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eOy-W0-19q" customClass="FaceView" customModule="FaceIt" customModuleProvider="target">
-                                <frame key="frameInset" width="375" height="618"/>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="eOy-W0-19q" customClass="FaceView" customModule="FaceIt" customModuleProvider="target">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>

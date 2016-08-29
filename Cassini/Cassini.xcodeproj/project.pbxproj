@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B03F4E31D73F4D90039DB88 /* DemoURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B03F4E21D73F4D90039DB88 /* DemoURL.swift */; };
+		6B03F4E71D741C7A0039DB88 /* CassiniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B03F4E61D741C7A0039DB88 /* CassiniViewController.swift */; };
 		6BB4B6FB1D6D9D65006D4E36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB4B6FA1D6D9D65006D4E36 /* AppDelegate.swift */; };
 		6BB4B7001D6D9D66006D4E36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4B6FE1D6D9D66006D4E36 /* Main.storyboard */; };
 		6BB4B7021D6D9D66006D4E36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4B7011D6D9D66006D4E36 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		6B03F4E21D73F4D90039DB88 /* DemoURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoURL.swift; sourceTree = "<group>"; };
+		6B03F4E61D741C7A0039DB88 /* CassiniViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CassiniViewController.swift; sourceTree = "<group>"; };
 		6BB4B6F71D6D9D65006D4E36 /* Cassini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cassini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB4B6FA1D6D9D65006D4E36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BB4B6FF1D6D9D66006D4E36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				6BB4B70D1D6D9DD8006D4E36 /* ImageViewController.swift */,
 				6BB4B6FE1D6D9D66006D4E36 /* Main.storyboard */,
+				6B03F4E61D741C7A0039DB88 /* CassiniViewController.swift */,
 				6B03F4E21D73F4D90039DB88 /* DemoURL.swift */,
 				6BB4B70C1D6D9D8A006D4E36 /* Supporting Files */,
 			);
@@ -152,6 +155,7 @@
 				6BB4B70E1D6D9DD8006D4E36 /* ImageViewController.swift in Sources */,
 				6BB4B6FB1D6D9D65006D4E36 /* AppDelegate.swift in Sources */,
 				6B03F4E31D73F4D90039DB88 /* DemoURL.swift in Sources */,
+				6B03F4E71D741C7A0039DB88 /* CassiniViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

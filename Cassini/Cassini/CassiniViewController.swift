@@ -2,13 +2,10 @@
 //  CassiniViewController.swift
 //  Cassini
 //
-//  Created by Suita Fujino on 2016/08/29.
-//  Copyright © 2016年 ARTE Co., Ltd. All rights reserved.
-//
 
 import UIKit
 
-class CassiniViewController: UIViewController {
+class CassiniViewController: UIViewController, UISplitViewControllerDelegate {
     private struct Storyboard {
         static let ShowImageSegue = "Show Image"
     }
@@ -21,7 +18,32 @@ class CassiniViewController: UIViewController {
             ivc.title = imageName
         }
     }
-
+    
+    
+    @IBAction func showImage(_ sender: UIButton) {
+        if let ivc = splitViewController?.viewControllers.last?.contentViewController as? ImageViewController {
+            guard let imageName = sender.currentTitle else { return }
+            ivc.imageURL = DemoURL.NASAImageNamed(imageName: imageName)
+            ivc.title = imageName
+        } else {
+            performSegue(withIdentifier: Storyboard.ShowImageSegue, sender: sender)
+        }
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        splitViewController?.delegate = self
+    }
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        if primaryViewController.contentViewController == self {
+            if let ivc = secondaryViewController.contentViewController as? ImageViewController, ivc.imageURL == nil {
+                return true
+            }
+        }
+        return false
+    }
 }
 
 extension UIViewController {

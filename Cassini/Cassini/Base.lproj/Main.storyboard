@@ -37,21 +37,21 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Earth"/>
                                         <connections>
-                                            <segue destination="he1-fi-xBi" kind="showDetail" identifier="Show Image" id="COn-JJ-U1l"/>
+                                            <action selector="showImage:" destination="UQh-6D-dGL" eventType="touchUpInside" id="IWa-cv-YjQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpP-Ms-FRy">
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Cassini"/>
                                         <connections>
-                                            <segue destination="he1-fi-xBi" kind="showDetail" identifier="Show Image" id="icR-y5-iAR"/>
+                                            <action selector="showImage:" destination="UQh-6D-dGL" eventType="touchUpInside" id="kkZ-kO-pAR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mw-1g-mZc">
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Saturn"/>
                                         <connections>
-                                            <segue destination="he1-fi-xBi" kind="showDetail" identifier="Show Image" id="NZN-xO-bAn"/>
+                                            <action selector="showImage:" destination="UQh-6D-dGL" eventType="touchUpInside" id="ETD-GO-iP5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -64,6 +64,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cassini" id="XjD-zl-DNA"/>
+                    <connections>
+                        <segue destination="he1-fi-xBi" kind="show" identifier="Show Image" id="6Ng-M4-Nvq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEQ-ae-uFo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,18 +85,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lsn-ZU-wNb"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="VEa-fb-71Y">
+                                <color key="color" red="0.44292580805716431" green="0.50979028818903527" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Lsn-ZU-wNb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5xo-Wi-GWb"/>
                             <constraint firstAttribute="trailing" secondItem="Lsn-ZU-wNb" secondAttribute="trailing" id="bRI-bJ-JnP"/>
                             <constraint firstItem="Lsn-ZU-wNb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fWD-9Y-CPu"/>
+                            <constraint firstItem="VEa-fb-71Y" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fni-Wh-hQL"/>
                             <constraint firstItem="Lsn-ZU-wNb" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="jhn-vq-mFV"/>
+                            <constraint firstItem="VEa-fb-71Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="taW-yy-sfa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Obk-El-Eu0"/>
                     <connections>
                         <outlet property="scrollView" destination="Lsn-ZU-wNb" id="VtM-0l-8fg"/>
+                        <outlet property="spinner" destination="VEa-fb-71Y" id="BCw-Ad-HUN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -138,6 +147,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="icR-y5-iAR"/>
+        <segue reference="6Ng-M4-Nvq"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -53,3 +53,10 @@ ctrl+右ドラッグで設定する．ctrl+shift+左クリックでレイヤー�
 #### Extensions
 #### Protocols
 #### UIScrollView
+### Lecture 8で扱った内容
+#### Multithreading
+dispatch queue
+#### Delegate
+#### Activity Indicator View
+#### Viewの再利用
+segueはviewを作り直してしまうので，`@IBAction`を使う．

@@ -19,8 +19,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     private func fetchImage() {
         guard let url = imageURL else { return }
-        
-        let queue = DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosUserInitiated)
+        spinner?.startAnimating()
+        let queue = DispatchQueue.global(attributes: .qosUserInitiated)
         queue.async {
             var contentsOfURL : Data? = nil
             do {
@@ -33,6 +33,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
                 if url == self.imageURL {
                     if let imageData = contentsOfURL {
                         self.image = UIImage(data: imageData)
+                    } else {
+                        self.spinner?.stopAnimating()
                     }
                 } else {
                     print("ignored data returned from url \(url)")
@@ -56,6 +58,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     private var imageView = UIImageView()
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     private var image: UIImage? {
         get {
             return imageView.image
@@ -64,6 +68,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             imageView.image = newValue
             imageView.sizeToFit()
             scrollView?.contentSize = imageView.frame.size
+            spinner?.stopAnimating()
         }
     }
     

@@ -60,3 +60,7 @@ dispatch queue
 #### Activity Indicator View
 #### Viewの再利用
 segueはviewを作り直してしまうので，`@IBAction`を使う．
+#### UITextField
+### Lecture 9で扱った内容
+#### UITableView
+#### Frameworkの利用

@@ -6,7 +6,7 @@
 import UIKit
 import Twitter
 
-class TweetTableViewController: UITableViewController {
+class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     
     var tweets = [Array<Tweet>]() {
         didSet {
@@ -48,7 +48,6 @@ class TweetTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        searchText = "#stanford"
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +61,8 @@ class TweetTableViewController: UITableViewController {
         return tweets.count
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
         return tweets[section].count
     }
     
@@ -82,7 +82,18 @@ class TweetTableViewController: UITableViewController {
         return cell
     }
 
+    @IBOutlet weak var searchTextField: UITextField! {
+        didSet {
+            searchTextField.delegate = self
+            searchTextField.text = searchText
+        }
+    }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        searchText = textField.text
+        return true
+    }
     /*
     // MARK: - Navigation
 

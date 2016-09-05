@@ -35,12 +35,12 @@ public class User: NSObject
         self.name = name
         self.id = id
 
-        self.verified = data?.value(forKeyPath: TwitterKey.Verified)?.boolValue ?? false
+        self.verified = data?.value(forKeyPath: TwitterKey.Verified) as? Bool ?? false
         let urlString = data?.value(forKeyPath: TwitterKey.ProfileImageURL) as? String ?? ""
         self.profileImageURL = (urlString.characters.count > 0) ? URL(string: urlString) : nil
     }
     
-    var asPropertyList: AnyObject {
+    var asPropertyList: Any {
         return [
             TwitterKey.Name:name,
             TwitterKey.ScreenName:screenName,

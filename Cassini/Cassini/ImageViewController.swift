@@ -11,6 +11,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     var imageURL: URL? {
         didSet {
             image = nil
+            print("view.window: \(view.window)")
             if view.window != nil {
                 fetchImage()
             }
@@ -20,7 +21,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     private func fetchImage() {
         guard let url = imageURL else { return }
         spinner?.startAnimating()
-        let queue = DispatchQueue.global(attributes: .qosUserInitiated)
+        let queue = DispatchQueue.global(qos: .userInitiated)
         queue.async {
             var contentsOfURL : Data? = nil
             do {

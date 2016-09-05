@@ -10,9 +10,9 @@ class CassiniViewController: UIViewController, UISplitViewControllerDelegate {
         static let ShowImageSegue = "Show Image"
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Storyboard.ShowImageSegue {
-            guard let ivc = segue.destinationViewController.contentViewController as? ImageViewController else { return }
+            guard let ivc = segue.destination.contentViewController as? ImageViewController else { return }
             guard let imageName = (sender as? UIButton)?.currentTitle else { return }
             ivc.imageURL = DemoURL.NASAImageNamed(imageName: imageName)
             ivc.title = imageName

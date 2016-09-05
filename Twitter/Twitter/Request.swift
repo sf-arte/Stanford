@@ -59,7 +59,7 @@ public class Request: NSObject
     // convenience "fetch" for when self is a request that returns Tweet(s)
     // handler is not necessarily invoked on the main queue
     
-    public func fetchTweets(_ handler: ([Tweet]) -> Void) {
+    public func fetchTweets(_ handler: @escaping ([Tweet]) -> Void) {
         fetch { results in
             var tweets = [Tweet]()
             var tweetArray: NSArray?
@@ -83,13 +83,13 @@ public class Request: NSObject
         }
     }
     
-    public typealias PropertyList = AnyObject
+    public typealias PropertyList = Any
     
     // send the request specified by our requestType and parameters off to Twitter
     // calls the handler (not necessarily on the main queue)
     //   with the JSON results converted to a Property List
     
-    public func fetch(_ handler: (results: PropertyList?) -> Void) {
+    public func fetch(_ handler: @escaping (_ results: PropertyList?) -> Void) {
         performTwitterRequest(SLRequestMethod.GET, handler: handler)
     }
     
@@ -129,7 +129,7 @@ public class Request: NSObject
     // then calls the other version of this method that takes an SLRequest
     // handler is not necessarily called on the main queue
     
-    func performTwitterRequest(_ method: SLRequestMethod, handler: (PropertyList?) -> Void) {
+    func performTwitterRequest(_ method: SLRequestMethod, handler: @escaping (PropertyList?) -> Void) {
         let jsonExtension = (self.requestType.range(of: Constants.JSONExtension) == nil) ? Constants.JSONExtension : ""
         let request = SLRequest(
             forServiceType: SLServiceTypeTwitter,
@@ -144,7 +144,7 @@ public class Request: NSObject
     // unpackages the JSON response into a Property List
     // and calls handler (not necessarily on the main queue)
     
-    func performTwitterSLRequest(_ request: SLRequest, handler: (PropertyList?) -> Void) {
+    func performTwitterSLRequest(_ request: SLRequest, handler: @escaping (PropertyList?) -> Void) {
         if let account = twitterAccount {
             request.account = account
             request.perform { (jsonResponse, httpResponse, _) in
@@ -155,12 +155,12 @@ public class Request: NSObject
                         options: JSONSerialization.ReadingOptions.mutableLeaves)
                     if propertyListResponse == nil {
                         let error = "Couldn't parse JSON response."
-                        self.log(error)
+                        self.log(error as AnyObject)
                         propertyListResponse = error
                     }
                 } else {
                     let error = "No response from Twitter."
-                    self.log(error)
+                    self.log(error as AnyObject)
                     propertyListResponse = error
                 }
                 self.synchronize {
@@ -178,13 +178,13 @@ public class Request: NSObject
                         self.performTwitterSLRequest(request, handler: handler)
                     } else {
                         let error = "Couldn't discover Twitter account type."
-                        self.log(error)
-                        handler(error)
+                        self.log(error as AnyObject)
+                        handler(error as PropertyList?)
                     }
                 } else {
                     let error = "Access to Twitter was not granted."
-                    self.log(error)
-                    handler(error)
+                    self.log(error as AnyObject)
+                    handler(error as PropertyList?)
                 }
             }
         }

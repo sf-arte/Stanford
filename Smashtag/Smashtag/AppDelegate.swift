@@ -2,9 +2,6 @@
 //  AppDelegate.swift
 //  Smashtag
 //
-//  Created by Suita Fujino on 2016/08/30.
-//  Copyright © 2016年 ARTE Co., Ltd. All rights reserved.
-//
 
 import UIKit
 

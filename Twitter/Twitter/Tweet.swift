@@ -64,7 +64,7 @@ public class Tweet : NSObject
     private static func mentionsFromTwitterData(_ twitterData: NSArray?, inText text: String, withPrefix prefix: String) -> [Mention] {
         var mentions = [Mention]()
         for mentionData in twitterData ?? [] {
-            if let mention = Mention(fromTwitterData: mentionData as? NSDictionary, inText: text, withPrefix: prefix) {
+            if let mention = Mention(fromTwitterData: mentionData as? NSDictionary, inText: text as NSString, withPrefix: prefix) {
                 mentions.append(mention)
             }
         }
@@ -98,8 +98,8 @@ public class Mention: NSObject
     {
         guard
             let indices = data?.value(forKeyPath: Tweet.TwitterKey.Entities.Indices) as? NSArray,
-            let start = (indices.firstObject as? NSNumber)?.intValue where start >= 0,
-            let end = (indices.lastObject as? NSNumber)?.intValue where end > start
+            let start = (indices.firstObject as? NSNumber)?.intValue , start >= 0,
+            let end = (indices.lastObject as? NSNumber)?.intValue , end > start
             else {
                 return nil
         }
@@ -123,7 +123,7 @@ public class Mention: NSObject
 private let twitterDateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "EEE MMM dd HH:mm:ss Z yyyy"
-    formatter.locale = Locale(localeIdentifier: "en_US_POSIX")
+    formatter.locale = Locale(identifier: "en_US_POSIX")
     return formatter
 }()
 

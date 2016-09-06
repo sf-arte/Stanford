@@ -83,12 +83,17 @@
                     <navigationItem key="navigationItem" id="nao-09-jNS">
                         <nil key="title"/>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Twitter Search Text" textAlignment="natural" minimumFontSize="17" id="XcF-Hd-vai">
-                            <rect key="frame" x="16" y="7" width="288" height="30"/>
+                            <rect key="frame" x="8" y="7" width="228" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <barButtonItem key="rightBarButtonItem" title="Tweeters" id="O17-cP-wgy">
+                            <connections>
+                                <segue destination="dZC-9Q-A0L" kind="showDetail" identifier="TweetersMentioningSearchTerm" id="NbX-5K-0GF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchTextField" destination="XcF-Hd-vai" id="Zkb-eU-6z5"/>
@@ -97,6 +102,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQ9-6a-Brx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1209.375" y="268.3098591549296"/>
+        </scene>
+        <!--Tweeters Table View Controller-->
+        <scene sceneID="m9c-2k-86n">
+            <objects>
+                <tableViewController id="dZC-9Q-A0L" customClass="TweetersTableViewController" customModule="Smashtag" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6xp-XO-SfW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="u49-9E-HjK">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u49-9E-HjK" id="kOb-HB-lbN">
+                                    <frame key="frameInset" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dZC-9Q-A0L" id="E22-gQ-2Vc"/>
+                            <outlet property="delegate" destination="dZC-9Q-A0L" id="CBd-MK-zc3"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xIe-vL-WLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1931" y="268"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oiS-3J-6KE">

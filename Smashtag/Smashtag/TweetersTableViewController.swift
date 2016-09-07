@@ -45,7 +45,7 @@ class TweetersTableViewController: CoreDataTableViewController {
 
         if let twitterUser = fetchedResultsController?.object(at: indexPath) as? TwitterUser {
             var screenName: String?
-            // async
+            // sync
             twitterUser.managedObjectContext?.performAndWait {
                 screenName = twitterUser.screenName
             }

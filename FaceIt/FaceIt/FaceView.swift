@@ -64,6 +64,31 @@ class FaceView: UIView {
         return eyeCenter
     }
     
+    private lazy var leftEye: EyeView = self.createEye()
+    private lazy var rightEye: EyeView = self.createEye()
+    
+    private func createEye() -> EyeView {
+        let eye = EyeView()
+        eye.opaque = false
+        eye.color = color
+        eye.lineWidth = lineWidth
+        self.addSubview(eye)
+        return eye
+    }
+    
+    private func positionEye(eye: EyeView, center: CGPoint) {
+        let size = skullRadius / Ratios.SkullRadiusToEyeRadius * 2
+        eye.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: size, height: size))
+        eye.center = center
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        positionEye(eye: leftEye, center: getEyeCenter(eye: .left))
+        positionEye(eye: rightEye, center: getEyeCenter(eye: .right))
+    }
+   
+    /*
     private func pathForEye(_ eye: Eye) -> UIBezierPath {
         let eyeRadius = skullRadius / Ratios.SkullRadiusToEyeRadius
         let eyeCenter = getEyeCenter(eye: eye)
@@ -78,7 +103,7 @@ class FaceView: UIView {
             return path
         }
     }
-    
+    */
     
     private func pathForBrow(_ eye: Eye) -> UIBezierPath {
         var tilt = eyeBrowTilt
@@ -125,8 +150,8 @@ class FaceView: UIView {
     override func draw(_ rect: CGRect) {
         color.set()
         pathForCircleCenteredAtPoint(midPoint: skullCenter, radius: skullRadius).stroke()
-        pathForEye(.left).stroke()
-        pathForEye(.right).stroke()
+        // pathForEye(.left).stroke()
+        // pathForEye(.right).stroke()
         pathForMouth().stroke()
         pathForBrow(.left).stroke()
         pathForBrow(.right).stroke()

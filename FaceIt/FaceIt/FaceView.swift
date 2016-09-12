@@ -12,7 +12,7 @@ class FaceView: UIView {
     @IBInspectable var mouthCurvature: Double = 1.0 { didSet { setNeedsDisplay() } }
     @IBInspectable var eyesOpen: Bool = true { didSet { setNeedsDisplay() } }
     @IBInspectable var eyeBrowTilt: Double = -0.5 { didSet { setNeedsDisplay() } }
-    @IBInspectable var color: UIColor = UIColor.blue() { didSet { setNeedsDisplay() } }
+    @IBInspectable var color: UIColor = UIColor.blue { didSet { setNeedsDisplay() } }
     @IBInspectable var lineWidth: CGFloat = 5.0 { didSet { setNeedsDisplay() } }
     
     func changeScale(recognizer: UIPinchGestureRecognizer) {

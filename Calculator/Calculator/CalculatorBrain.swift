@@ -15,7 +15,7 @@ class CalculatorBrain {
         internalProgram.append(.operand(operand))
     }
     
-    func addUnaryOperation(symbol: String, operation: (Double) -> Double) {
+    func addUnaryOperation(symbol: String, operation: @escaping (Double) -> Double) {
         operations[symbol] = Operation.UnaryOperation(operation)
     }
     

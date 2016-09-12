@@ -64,3 +64,10 @@ segueはviewを作り直してしまうので，`@IBAction`を使う．
 ### Lecture 9で扱った内容
 #### UITableView
 #### Frameworkの利用
+### Lecture 10で扱った内容
+#### Core data
+`UIManagedDocument`，`NSFetchRequest`など
+### Lecture 11で扱った内容
+#### Core dataの読み書き
+`NSManagedObjectContext`，`NSFetchRequest`，`NSFetchedResultsController`など
+### Lecture 12で扱った内容

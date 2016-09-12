@@ -14,8 +14,8 @@ class EmotionsViewController: UIViewController {
         "mischievious" : FacialExpression(eyes: .open, eyeBrows: .furrowed, mouth: .grin)
     ]
 
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationvc = segue.destinationViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationvc = segue.destination
         guard let navcon = destinationvc as? UINavigationController else { return }
         guard let facevc = navcon.visibleViewController as? FaceViewController else { return }
       

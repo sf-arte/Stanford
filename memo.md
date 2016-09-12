@@ -71,3 +71,6 @@ segueはviewを作り直してしまうので，`@IBAction`を使う．
 #### Core dataの読み書き
 `NSManagedObjectContext`，`NSFetchRequest`，`NSFetchedResultsController`など
 ### Lecture 12で扱った内容
+#### Autolayout
+### Lecture 13で扱った内容
+#### NSTimer

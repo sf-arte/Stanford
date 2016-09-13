@@ -74,3 +74,5 @@ segueはviewを作り直してしまうので，`@IBAction`を使う．
 #### Autolayout
 ### Lecture 13で扱った内容
 #### NSTimer
+#### Animation
+`UIView.transition`,`UIView.animate`

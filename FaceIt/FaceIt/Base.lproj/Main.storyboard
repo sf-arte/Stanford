@@ -127,7 +127,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="5mG-mH-uks">
                     <connections>
-                        <action selector="toggleEyes:" destination="BYZ-38-t0r" id="i1N-L8-7Fd"/>
+                        <action selector="headShake:" destination="BYZ-38-t0r" id="Tvg-Nn-7gd"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

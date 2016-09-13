@@ -10,10 +10,10 @@ class FaceView: UIView {
     
     @IBInspectable var scale: CGFloat = 0.90 { didSet { setNeedsDisplay() } }
     @IBInspectable var mouthCurvature: Double = 1.0 { didSet { setNeedsDisplay() } }
-    @IBInspectable var eyesOpen: Bool = true { didSet { setNeedsDisplay() } }
+    @IBInspectable var eyesOpen: Bool = true { didSet { leftEye.eyesOpen = eyesOpen; rightEye.eyesOpen = eyesOpen } }
     @IBInspectable var eyeBrowTilt: Double = -0.5 { didSet { setNeedsDisplay() } }
-    @IBInspectable var color: UIColor = UIColor.blue { didSet { setNeedsDisplay() } }
-    @IBInspectable var lineWidth: CGFloat = 5.0 { didSet { setNeedsDisplay() } }
+    @IBInspectable var color: UIColor = UIColor.blue { didSet { setNeedsDisplay(); leftEye.color = color; rightEye.color = color } }
+    @IBInspectable var lineWidth: CGFloat = 5.0 { didSet { setNeedsDisplay(); leftEye.lineWidth = lineWidth; rightEye.lineWidth = lineWidth } }
     
     func changeScale(recognizer: UIPinchGestureRecognizer) {
         switch recognizer.state {
@@ -69,7 +69,7 @@ class FaceView: UIView {
     
     private func createEye() -> EyeView {
         let eye = EyeView()
-        eye.opaque = false
+        eye.isOpaque = false
         eye.color = color
         eye.lineWidth = lineWidth
         self.addSubview(eye)

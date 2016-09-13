@@ -55,19 +55,19 @@ class FaceViewController: UIViewController {
     @IBAction func headShake(_ sender: UITapGestureRecognizer) {
         UIView.animate(withDuration: Animation.ShakeDuration,
             animations: {
-                self.faceView.transform = CGAffineTransform(rotationAngle: Animation.ShakeAngle)
+                self.faceView.transform = self.faceView.transform.rotated(by: Animation.ShakeAngle)
             },
             completion: { finished in
                 if finished {
                     UIView.animate(withDuration: Animation.ShakeDuration,
                         animations: {
-                            self.faceView.transform = CGAffineTransform(rotationAngle: -Animation.ShakeAngle * 2)
+                            self.faceView.transform = self.faceView.transform.rotated(by: -Animation.ShakeAngle * 2)
                         },
                         completion: { finished in
                             if finished {
                                 UIView.animate(withDuration: Animation.ShakeDuration,
                                     animations: {
-                                        self.faceView.transform = CGAffineTransform(rotationAngle: Animation.ShakeAngle)
+                                        self.faceView.transform = self.faceView.transform.rotated(by: Animation.ShakeAngle)
                                     },
                                     completion: nil
                                 )

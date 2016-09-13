@@ -26,6 +26,9 @@ class BlinkingFaceViewController: FaceViewController {
     }
     
     func endBlink() {
+        let date = NSDate()
+        
+        print("endBlink() \(date.timeIntervalSince1970)")
             faceView.eyesOpen = true
             Timer.scheduledTimer(timeInterval: BlinkRate.OpenDuration, target: self, selector: #selector(BlinkingFaceViewController.startBlink), userInfo: nil, repeats: false)
     }

@@ -76,3 +76,8 @@ segueはviewを作り直してしまうので，`@IBAction`を使う．
 #### NSTimer
 #### Animation
 `UIView.transition`,`UIView.animate`
+### Lecture 14で扱った内容
+#### Animation
+`UICollisionBehavior`,`UIGravityBehavior`
+#### Core Motion
+accelerometer, magnetometer, gyro

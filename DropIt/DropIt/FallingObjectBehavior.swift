@@ -17,16 +17,15 @@ class FallingObjectBehavior: UIDynamicBehavior
     
     private let itemBehavior: UIDynamicItemBehavior = {
         let dib = UIDynamicItemBehavior()
-        dib.allowsRotation = false
+        dib.allowsRotation = true
         dib.elasticity = 0.75
         return dib
     }()
-     /*
+    
     func addBarrier(path: UIBezierPath, named name: String) {
-        collider.removeBoundary(withIdentifier: name)
-        collider.addBoundary(withIdentifier: name, for: path)
+        collider.removeBoundary(withIdentifier: name as NSCopying)
+        collider.addBoundary(withIdentifier: name as NSCopying, for: path)
     }
-     */
     
     override init() {
         super.init()

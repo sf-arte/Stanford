@@ -15,6 +15,7 @@
 		6B02597A1D87C6C70079EF6A /* DropItViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0259791D87C6C70079EF6A /* DropItViewController.swift */; };
 		6B02597C1D87C8D40079EF6A /* UIKit Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B02597B1D87C8D40079EF6A /* UIKit Extensions.swift */; };
 		6B0259801D87E7830079EF6A /* FallingObjectBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B02597F1D87E7830079EF6A /* FallingObjectBehavior.swift */; };
+		6BE45F6A1D8911630043609A /* NamedBezierPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE45F691D8911630043609A /* NamedBezierPathView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		6B0259791D87C6C70079EF6A /* DropItViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropItViewController.swift; sourceTree = "<group>"; };
 		6B02597B1D87C8D40079EF6A /* UIKit Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit Extensions.swift"; sourceTree = "<group>"; };
 		6B02597F1D87E7830079EF6A /* FallingObjectBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallingObjectBehavior.swift; sourceTree = "<group>"; };
+		6BE45F691D8911630043609A /* NamedBezierPathView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamedBezierPathView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				6B02597F1D87E7830079EF6A /* FallingObjectBehavior.swift */,
 				6B02597B1D87C8D40079EF6A /* UIKit Extensions.swift */,
 				6B0259771D87C6640079EF6A /* DropItView.swift */,
+				6BE45F691D8911630043609A /* NamedBezierPathView.swift */,
 				6B0259791D87C6C70079EF6A /* DropItViewController.swift */,
 				6B0259761D87C6010079EF6A /* Supporting Files */,
 			);
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BE45F6A1D8911630043609A /* NamedBezierPathView.swift in Sources */,
 				6B02597A1D87C6C70079EF6A /* DropItViewController.swift in Sources */,
 				6B0259781D87C6640079EF6A /* DropItView.swift in Sources */,
 				6B0259801D87E7830079EF6A /* FallingObjectBehavior.swift in Sources */,

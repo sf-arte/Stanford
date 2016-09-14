@@ -81,3 +81,7 @@ segueはviewを作り直してしまうので，`@IBAction`を使う．
 `UICollisionBehavior`,`UIGravityBehavior`
 #### Core Motion
 accelerometer, magnetometer, gyro
+### Lecture 15で扱った内容
+#### NSNotification
+#### Application Lifecycle
+AppDelegate, Info.plist

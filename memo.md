@@ -85,3 +85,8 @@ accelerometer, magnetometer, gyro
 #### NSNotification
 #### Application Lifecycle
 AppDelegate, Info.plist
+### Lecture 17で扱った内容
+#### Segues
+Modal, Unwind, Popover, Embed
+#### Core Location
+`CLLocation`

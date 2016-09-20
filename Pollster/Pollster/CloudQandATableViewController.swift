@@ -48,7 +48,7 @@ class CloudQandATableViewController: QandATableViewController {
             if ckerror.code == CKError.serverRecordChanged {
                 // ignore
             } else if error != nil {
-                self.retryAfterError(error, withSelector: #selector(self.iCloudUpdate))
+               // self.retryAfterError(error: error, withSelector: #selector(self.iCloudUpdate))
             }
         }
     }

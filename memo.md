@@ -90,3 +90,4 @@ AppDelegate, Info.plist
 Modal, Unwind, Popover, Embed
 #### Core Location
 `CLLocation`
+#### Map Kit

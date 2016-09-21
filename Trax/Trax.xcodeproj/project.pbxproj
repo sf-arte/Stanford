@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6BDD2C091D92421600DB369A /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD2C081D92421600DB369A /* GPX.swift */; };
 		6BDD2C0B1D92463B00DB369A /* MKGPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD2C0A1D92463B00DB369A /* MKGPX.swift */; };
+		6BDD2C0D1D924E5400DB369A /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD2C0C1D924E5400DB369A /* ImageViewController.swift */; };
+		6BDD2C0F1D925F4100DB369A /* EditWaypointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD2C0E1D925F4100DB369A /* EditWaypointViewController.swift */; };
 		6BDFE49D1D9123E800A7F9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFE49C1D9123E800A7F9A7 /* AppDelegate.swift */; };
 		6BDFE49F1D9123E900A7F9A7 /* GPXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFE49E1D9123E900A7F9A7 /* GPXViewController.swift */; };
 		6BDFE4A21D9123E900A7F9A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BDFE4A01D9123E900A7F9A7 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		6BDD2C081D92421600DB369A /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
 		6BDD2C0A1D92463B00DB369A /* MKGPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGPX.swift; sourceTree = "<group>"; };
+		6BDD2C0C1D924E5400DB369A /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		6BDD2C0E1D925F4100DB369A /* EditWaypointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWaypointViewController.swift; sourceTree = "<group>"; };
 		6BDFE4991D9123E800A7F9A7 /* Trax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BDFE49C1D9123E800A7F9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BDFE49E1D9123E900A7F9A7 /* GPXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXViewController.swift; sourceTree = "<group>"; };
@@ -60,8 +64,10 @@
 			children = (
 				6BDFE4AE1D9123F700A7F9A7 /* Supporting Files */,
 				6BDFE49E1D9123E900A7F9A7 /* GPXViewController.swift */,
+				6BDD2C0C1D924E5400DB369A /* ImageViewController.swift */,
 				6BDD2C0A1D92463B00DB369A /* MKGPX.swift */,
 				6BDFE4A01D9123E900A7F9A7 /* Main.storyboard */,
+				6BDD2C0E1D925F4100DB369A /* EditWaypointViewController.swift */,
 			);
 			path = Trax;
 			sourceTree = "<group>";
@@ -153,6 +159,8 @@
 			files = (
 				6BDFE49F1D9123E900A7F9A7 /* GPXViewController.swift in Sources */,
 				6BDD2C0B1D92463B00DB369A /* MKGPX.swift in Sources */,
+				6BDD2C0F1D925F4100DB369A /* EditWaypointViewController.swift in Sources */,
+				6BDD2C0D1D924E5400DB369A /* ImageViewController.swift in Sources */,
 				6BDFE49D1D9123E800A7F9A7 /* AppDelegate.swift in Sources */,
 				6BDD2C091D92421600DB369A /* GPX.swift in Sources */,
 			);

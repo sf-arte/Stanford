@@ -7,7 +7,7 @@
 import UIKit
 import MapKit
 
-class GPXViewController: UIViewController, MKMapViewDelegate {
+class GPXViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentationControllerDelegate {
     
     var gpxURL: URL? {
         didSet {
@@ -40,14 +40,18 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
         } else {
             view.annotation = annotation
         }
+        view.isDraggable = annotation is EditableWaypoint
         
         view.leftCalloutAccessoryView = nil
+        view.rightCalloutAccessoryView = nil
         if let waypoint = annotation as? GPX.Waypoint {
             if waypoint.thumbnailURL != nil {
                 view.leftCalloutAccessoryView = UIButton(frame: Constants.LeftCalloutFrame)
             }
+            if waypoint is EditableWaypoint {
+                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            }
         }
-        
         return view
     }
     
@@ -57,6 +61,78 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
             let imageData = (try? Data(contentsOf: url)), // blocks main queue
             let image = UIImage(data: imageData) {
             thumbnailImageButton.setImage(image, for: .normal)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.leftCalloutAccessoryView {
+            performSegue(withIdentifier: Constants.ShowImageSegue, sender: view)
+        } else if control == view.rightCalloutAccessoryView {
+            mapView.deselectAnnotation(view.annotation, animated: true)
+            performSegue(withIdentifier: Constants.EditUserWaypoint, sender: view)
+        }
+    }
+
+    @IBAction func updateUserWaypoint(segue: UIStoryboardSegue) {
+        selectWaypoint(waypoint: (segue.source.contentViewController as? EditWaypointViewController)?.waypointToEdit)
+    }
+    
+    private func selectWaypoint(waypoint: GPX.Waypoint?) {
+        if let wp = waypoint {
+            mapView.selectAnnotation(wp, animated: true)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination.contentViewController
+        let annotationView = sender as? MKAnnotationView
+        let waypoint = annotationView?.annotation as? GPX.Waypoint
+        
+        if segue.identifier == Constants.ShowImageSegue {
+            if let ivc = destination as? ImageViewController {
+                ivc.imageURL = waypoint?.imageURL
+                ivc.title = waypoint?.name
+            }
+        } else if segue.identifier == Constants.EditUserWaypoint {
+            if let editableWaypoint = waypoint as? EditableWaypoint,
+                let ewvc = destination as? EditWaypointViewController,
+                let av = annotationView {
+                if let ppc = ewvc.popoverPresentationController {
+                    ppc.sourceRect = av.frame
+                    ppc.delegate = self
+                }
+                ewvc.waypointToEdit = editableWaypoint
+            }
+        }
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        selectWaypoint(waypoint: (popoverPresentationController.presentedViewController as? EditWaypointViewController)?.waypointToEdit)
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return traitCollection.horizontalSizeClass == .compact ? .overFullScreen : .none
+    }
+    
+    func presentationController(_ controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
+        if style == .fullScreen || style == .overFullScreen {
+            let navcon = UINavigationController(rootViewController: controller.presentedViewController)
+            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+            visualEffectView.frame = navcon.view.bounds
+            visualEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            navcon.view.insertSubview(visualEffectView, at: 0)
+            return navcon
+        } else {
+            return nil
+        }
+    }
+    
+    @IBAction func addWaypoint(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            let coordinate = mapView.convert(sender.location(in: mapView), toCoordinateFrom: mapView)
+            let waypoint = EditableWaypoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            waypoint.name = "Dropped"
+            mapView.addAnnotation(waypoint)
         }
     }
     
@@ -81,3 +157,12 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
 
 }
 
+extension UIViewController {
+    var contentViewController: UIViewController {
+        if let navcon = self as? UINavigationController {
+            return navcon.visibleViewController ?? navcon
+        } else {
+            return self
+        }
+    }
+}
